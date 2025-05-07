@@ -253,7 +253,7 @@ fn handle_shoot_duck(
 fn handle_dying(
     time: Res<Time>,
     mut commands: Commands,
-    mut duck_query: Query<(Entity, &mut Transform, &Duck)>,
+    mut duck_query: Query<(Entity, &mut Transform, &Duck), Without<Dead>>,
 ) {
     for (entity, mut transform, duck) in &mut duck_query {
         if duck.behaviour == DuckBehaviour::Dying {
